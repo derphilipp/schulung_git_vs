@@ -55,6 +55,24 @@ Philipp Weißmann
 - Kostenlos und frei
 
 ---
+
+# Visual Sutdio Integration 2
+
+Vorteile:
+  - Macht viele alltägliche Operationen in VS zugänglich
+  - Integriert direkt History Ansicht etc.
+  - Sinnvolle Dialog-Steuerung bei grafischer Nutzung
+  - Praktisches Erstellen von Konfigurationsdateien, passen für .Net Windows Entwicklungsprojekte
+Nachteile:
+  - Teilweise leider sehr langsam/unperfomant
+  - Nicht alle Operationen möglich, Kommandozeile ist immer notwendig
+  - Ansicht nicht zwangsläuftig aktuell (Dialoge bleiben stehen, Manuelle Aktualisierungen notwendig etc.)
+  - Keine Automatisierungen
+  - Teilweise Ungefragte Operationen (z.B. Initiale mehrere Commits)
+  - Abweichen von den Default-Bezeichnungen bei Merge etc.
+  - Konfigurationsdateien für andere Projektarten nicht passend
+
+---
 # Installation
 - Linux:
   - Meist schon installiert, Paketmanager
@@ -98,6 +116,7 @@ Einstellungen werden an 3 Orten gespeichert:
   * Notepad++
     * `git config --global core.editor "'c:\Program Files\Notepad++\notepad++.exe' -multiInst -notabbar -nosession -noPlugin"`
 * Visual Studio: n/a
+* Achtung: Ergibt auch bei Visual Studio nutzung Sinn!
 
 ---
 # Zustände
