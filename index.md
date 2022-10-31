@@ -2,7 +2,7 @@ name: inverse
 layout: true
 class: left, middle, inverse
 ---
-# Einführung in Git
+# Einführung in Git - Visual Studio
 
 Philipp Weißmann
 
@@ -76,14 +76,29 @@ Einstellungen werden an 3 Orten gespeichert:
     - `PROJEKT-VERZEICHNIS/.git/config`
 
 ---
-# Setup
+
+
+# Setup 1
 - Emailadresse und Name einstellen:
   - `git config --global user.name "Philipp Weißmann"`
   - `git config --global user.email "mail@philipp-weissmann.de"`
 
-- Editor einstellen:
-  - `git config --global core.editor notepad`
-  - `git config --global core.editor "'c:\Program Files\Notepad++\notepad++.exe' -multiInst -notabbar -nosession -noPlugin"`
+---
+# Setup 1 in Visual Studio
+- Übernimmt die Einstellungen von `.gitconfig`
+- ![inline](img/settings.png)
+
+---
+
+# Setup 2
+
+* Editor einstellen:
+  * Visual Studio Code
+    * `git config --global core.editor "code --wait"`
+  * Notepad++
+    * `git config --global core.editor "'c:\Program Files\Notepad++\notepad++.exe' -multiInst -notabbar -nosession -noPlugin"`
+* Visual Studio: n/a
+
 ---
 # Zustände
 ![inline](states.png)
@@ -98,6 +113,23 @@ Einstellungen werden an 3 Orten gespeichert:
 - Beinhaltet Informationen und Daten (dezentral!)
 
 ---
+# Neues Repository - Visual Studio 1
+
+![inline](img/without_git.png)
+
+---
+
+# Neues Repository - Visual Studio 2
+
+![inline](img/create_git.png)
+
+---
+# Neues Repository - Visual Studio 3
+
+![inline](img/create_dialogue.png)
+
+---
+
 # Zustand ansehen
 
 `git status`
@@ -107,16 +139,39 @@ Einstellungen werden an 3 Orten gespeichert:
   - `git help status` oder `git status --help`
 
 ---
+
+# Zustand ansehen - Visual Studio
+
+![inline](img/status.png)
+
+---
 ## Zustand: Stage Files
 ![inline](states.png)
 
 ---
+
 # Stage Files
 - Datei in Stage hinzufügen
   - `git add` *DATEINAME*
 - Datei aus Stage wieder entfernen
   - `git reset HEAD` *DATEINAME*
+
 ---
+
+# Stage Files - Visual Studio
+
+![inline](img/add.png)
+
+---
+# Main & Master
+
+- Heute üblicher Haupt-Zweig: `main`
+- Früher üblicher Haupt-Zweig: `master`
+- Bei älteren Projekten noch `master`
+- Wird zumeist geändert (z.B. [Github Änderung](https://www.bbc.com/news/technology-53050955))
+
+---
+
 # Zustand: Commit
 ![inline](states.png)
 
@@ -138,6 +193,7 @@ oder interaktiv (öffnet Editor)
   - Nachvollziehbare, kurze Nachricht
   - Beschreibung der Änderung auf logischer Ebene
   - Commit editieren: `git commit --amend`
+  - In Visual Studio: Ammend-Commit durchführen
 
 Beispiele:
 - *Changes API from sqlite2 to sqlite3*
@@ -161,12 +217,16 @@ Beispiele:
 ---
 # Switch
 - Auf einen vorhanden Zweig wechseln
-  - `git switch ` *DATEINAME*
+  - `git switch ` *Zweig-Name*
 - Auf einen alten Stand wechseln:
   - `git switch --detach` *COMMIT-ID*
   - Achtung: Ohne neuen Branch befindet man sich im "detached head state", d.h. es können keine Änderungen commited werden
 - Aus "detached head state" zurückkehren:
   - `git switch -`
+
+---
+# Switch - Visual Studio
+![inline](img/branches.png)
 
 ---
 # Restore & Reset
@@ -176,7 +236,18 @@ Beispiele:
   - `git reset --hard ` *VERSION*
 - z.B. Zurücksetzen des Projektes auf den 'main' Stand vom Server 'origin'
   - `git reset --hard origin/main`
+
 ---
+# Restore & Reset - Visual Studio 1
+![inline](img/add.png)
+
+---
+# Restore & Reset - Visual Studio 2
+![inline](img/branches.png)
+
+---
+
+
 # Checkout
 - `checkout` erledigte die Aufgabe von `restore` UND `switch` gleichzeitig
 - Empfehlung: `switch` und `restore` einzeln verwenden.
@@ -208,6 +279,13 @@ z.B. `git diff DATEINAME`
 oder `git diff` für alle Änderungen
 - Stellt Unterschiede dieser Datei dar (jetzt zu "letzter Stand")
 - Kann ältere Versionen vergleichen
+
+---
+
+# Unterschied darstellen - Visual Studio
+- Nur mit letztem Stand ☹️
+- In UI direkt
+![inline](img/diff.png)
 
 ---
 
@@ -276,7 +354,10 @@ f83fcb6 Add awesome-gyazo
 |/
 * 71ef478 Add AngularJS-Learning and AngularJS2-Learning
 ```
+---
+# Commits ansehen - Visual Studio
 
+![inline](img/log.png)
 ---
 # Exkurs: Eigene Kommandos
 
@@ -359,6 +440,11 @@ Alter Befehl dafür:
 `git checkout -b feature/add_scanner_support`
 
 ---
+# Branch Ansicht - Visual Studio
+
+![inline](img/branches.png)
+
+---
 # Branching Tipps
 Tipps:
 - Branch Namen mit "/" gruppieren
@@ -371,11 +457,15 @@ Tipps:
 
 # Branches zusammenführen: Merge
 - Beim Abschluss eines Branches (z.B. Aufgabe komplett) soll dieser in einen andere (z.B. *main*) Branch überführt werden
-- Wechsle in den Ziel-Branch (hier: *master*)
+- Wechsle in den Ziel-Branch (hier: *main*)
   - `git merge BRANCH`
   - z.B. `git merge bug/burning_printer`
 
 ---
+# Branches zusammenführen: Merge - Visual Studio
+![inline](img/merge_branch.png)
+---
+
 # Versionsstände markieren: Tagging
 `git tag TAG-BEZEICHUNG`
 - z.B. `git tag v1.2.0 1b2c3d4f`
@@ -386,7 +476,9 @@ Tipps:
 `git reset`
 - Tipp: Fast jede Situation ist in der Hilfe von `git reset` beschrieben.
 - Hilfe unter `git reset --help` konsultieren!
+
 ---
+
 # Änderungen "parken": Stash
 `git stash`
 - "Parkt" Änderungen an Projekt lokal
@@ -399,6 +491,10 @@ Tipps:
   - `git stash drop`
 - Alternative: Anwenden und entfernen:
   - `git stash pop`
+---
+# Änderungen "parken": Stash - Visual Studio
+![inline](img/checkout_and_stash.png)
+
 ---
 ## Erweitertes Stashen:
 - Kann "de-appliziert" werden:
@@ -419,7 +515,7 @@ Tipps:
 # Änderungen anwenden
 `git merge`
 - Zusammenführen von 2 Branches
-  - (z.B. entfernter Branch und lokaler Branch *master*)
+  - (z.B. entfernter Branch und lokaler Branch *main*)
 - `git pull`
   - Führt `git fetch` und `git merge` in einem aus
 - Tipp: Anfangs `git fetch` und `git merge` manuell ausführen!
@@ -431,9 +527,9 @@ Tipps:
 `git push`
 - Commits auf den Server übertragen
 - Bei erstem push Serverangabe und Branch notwendig:
-  - z.B. `git push origin master`
+  - z.B. `git push origin main`
   - *origin*: Standard Servername
-  - *master*: Standard Branch
+  - *main*: Standard Branch
 - Falls der Server noch nicht bekannt ist:
   - `git remote add origin SERVER`
   - z.B. `git remote add origin git@github.com:jnv/lists.git`
@@ -461,9 +557,14 @@ Acht
   - Am Ende fertige Dateien hinzufügen (`git add`) und comitten (`git commit`)
 
 ---
+# Merge Beispiel - Visual Studio
+
+- ![inline](img/merge_conflict.png)
+
+---
 # Alle lokalen Änderungen verwerfen:
 - `git fetch origin` # Neueste Version von Server holen
-- `git reset --hard origin/master` # Kompletter Reset des Branches
+- `git reset --hard origin/main` # Kompletter Reset des Branches
 
 ---
 # Online Services
@@ -509,7 +610,13 @@ Acht
 
 `git switch feature/add_sqlite3_support`
 
-`git rebase master`
+`git rebase main`
+
+---
+## Rebasing - Visual Studio
+
+- "Rebase" statt merge
+- ![inline](img/merge_branch.png)
 
 ---
 ## History verändern
@@ -517,6 +624,7 @@ Acht
 
 z.B. `git rebase -i feature/add/sqlite3/support`
 - Achtung: Erfordert i.d.R. `git push --force`, was die History verändert.
+- Achtung: Geht nicht in Visual Studio
 - Dies ist bei gemeinsamen Arbeiten i.d.R. nicht möglich
 - Übung: https://github.com/derphilipp/schulung_git_example_rebase
 ---
@@ -525,6 +633,10 @@ z.B. `git rebase -i feature/add/sqlite3/support`
 - Ermöglicht Auswahl von zu nutzenden Commits
 - Nur mit hoher Entwicklerdisziplin und temporären Einsatz praktikabel
 - Siehe `git cherry-pick`
+---
+## Cherry-Picking - Visual Studio
+
+- ![inline](img/cherry_pick.png)
 
 ---
 # Arbeiten mit Github
