@@ -63,6 +63,7 @@ Vorteile:
   - Integriert direkt History Ansicht etc.
   - Sinnvolle Dialog-Steuerung bei grafischer Nutzung
   - Praktisches Erstellen von Konfigurationsdateien, passen für .Net Windows Entwicklungsprojekte
+ 
 Nachteile:
   - Teilweise leider sehr langsam/unperfomant
   - Nicht alle Operationen möglich, Kommandozeile ist immer notwendig
