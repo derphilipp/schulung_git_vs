@@ -56,7 +56,7 @@ Philipp Weißmann
 
 ---
 
-# Visual Sutdio Integration 2
+# Visual Studio Integration
 
 Vorteile:
   - Macht viele alltägliche Operationen in VS zugänglich
